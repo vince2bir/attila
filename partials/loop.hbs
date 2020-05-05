@@ -15,7 +15,15 @@
 				{{t "on "}}
 				<time datetime="{{date format='DD-MM-YYYY'}}">{{date format="DD MMM YYYY"}}</time>
 			</span>
-			<p class="post-excerpt">{{excerpt}}&hellip;</p>
+                        {{#if custom_excerpt}}
+                        <p class="post-excerpt">{{custom_excerpt}}</p>
+                        {{else}}
+                                {{#has tag="Répondeur, répondeur"}}
+                                	<p>{{content words="60"}}</p>
+                                {{else}}
+                                	<p class="post-excerpt">{{excerpt}}</br>&hellip;</p>
+                                {{/has}}
+                        {{/if}}
 		</div>
 	</div>
 </article>
